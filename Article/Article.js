@@ -112,3 +112,16 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+const articleDiv = document.createElement('div')
+const articleH2 = document.createElement('h2')
+const articleP = document.createElement('p')
+const articleP2 = document.createElement('p')
+const articleP3 = document.createElement('p')
+const articleButton = document.createElement('span')
+articleDiv.appendChild(articleH2)
+articleH2.appendChild(articleP)
+articleH2.appendChild(articleP)
+articleH2.appendChild(articleP2)
+articleH2.appendChild(articleP3)
+articleH2.appendChild(articleButton)
+
