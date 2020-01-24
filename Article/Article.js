@@ -144,14 +144,6 @@ const createArticle = (title, date, first, second, third) => {
   return articleDiv
 }
 
+const articleInsert = document.querySelector('.articles')
 
-
-const articleInsert = document.querySelector('.articles');
-
-data.forEach(item => {
-  const newItem = createArticle(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
-  articleInsert.appendChild(newItem)
-});
-
-
-
+data.map( data => articleInsert.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph)))
