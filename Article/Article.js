@@ -125,7 +125,7 @@ const createArticle = (title, date, first, second, third) => {
   const articleP3 = document.createElement('p')
   articleP3.textContent  = third
   const articleOpen = document.createElement('span')
-  articleOpen.textContent = 'expandButton'
+  articleOpen.textContent = null
 
   articleDiv.appendChild(articleH2)
   articleDiv.appendChild(articlePDate)
@@ -138,12 +138,12 @@ const createArticle = (title, date, first, second, third) => {
   articlePDate.classList.add('date')
   articleOpen.classList.add('expandButton')
   
-  articleOpen.addEventListener('click', () => {
-    articleOpen.classList.toggle('article-open')
+  articleDiv.addEventListener('click', () => {
+    articleDiv.classList.toggle('article-open')
   })
   return articleDiv
 }
 
 const articleInsert = document.querySelector('.articles')
-
-data.map( item => articleInsert.appendChild(createArticle(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph)))
+data.forEach( item => articleInsert.appendChild(createArticle(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph)))
+articleInsert.appendChild(createArticle('Hired', 'Jan 1st, 2020', 'FreeLance studend from LambdaSchool receives offer from the President.', 'Offer is still pending...', 'LambdaStudent declines offer for a fork that could save humanity.'))
