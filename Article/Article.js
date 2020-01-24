@@ -116,41 +116,42 @@ const createArticle = (title, date, first, second, third) => {
   const articleDiv = document.createElement('div')
   const articleH2 = document.createElement('h2')
   articleH2.textContent = title
-  const articlePdate = document.createElement('p')
-  articlePdate.textContent = date
+  const articlePDate = document.createElement('p')
+  articlePDate.textContent = date
   const articleP1 = document.createElement('p')
-  articleP1 = first
+  articleP1.textContent  = first
   const articleP2 = document.createElement('p')
-  articleP2 = second
+  articleP2.textContent  = second
   const articleP3 = document.createElement('p')
-  articlep3 = third
+  articleP3.textContent  = third
+  const articleOpen = document.createElement('span')
+  articleOpen.textContent = 'expandButton'
 
   articleDiv.appendChild(articleH2)
-  articleH2.appendChild(articleP)
-  articleH2.appendChild(articleP2)
-  articleH2.appendChild(articleP3)
-  articleH2.appendChild(articleButton)
-  const articleOpen = document.createElement('span')
+  articleDiv.appendChild(articlePDate)
+  articleDiv.appendChild(articleP1)
+  articleDiv.appendChild(articleP2)
+  articleDiv.appendChild(articleP3)
+  articleDiv.appendChild(articleOpen)
+
+  articleDiv.classList.add('article')
+  articlePDate.classList.add('date')
+  articleOpen.classList.add('expandButton')
+  
   articleOpen.addEventListener('click', () => {
-    articleText.classList.toggle('article-open')
-})
+    articleDiv.classList.toggle('article-open')
+  })
   return articleDiv
 }
 
-articleDiv.classList.add('articleDiv')
-articleH2.classList.add('articleH2')
-articleP.classList.add('articleP')
-articleP2.classList.add('articleP2')
-articleP3.classList.add('articleP3')
-articleButton.classList.add('articleButton')
 
-const article = document.querySelector('.articles')
 
-article.appendChild(createArticle(data[0].title, data[0].date, data[0].firstParagraph, data[0].secondParagraph, data[0].thirdParagraph)
+const articleInsert = document.querySelector('.articles');
 
-// data.forEach (item => {
-//   const newItem = article.appendChild(createArticle(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph)
+data.forEach(item => {
+  const newItem = createArticle(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph);
+  articleInsert.appendChild(newItem)
+});
 
-//   article.appendChild(newItem)
-// })
+
 
