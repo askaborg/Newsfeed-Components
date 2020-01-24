@@ -112,3 +112,38 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+const createArticle = (title, date, first, second, third) => {
+  const articleDiv = document.createElement('div')
+  const articleH2 = document.createElement('h2')
+  articleH2.textContent = title
+  const articlePDate = document.createElement('p')
+  articlePDate.textContent = date
+  const articleP1 = document.createElement('p')
+  articleP1.textContent  = first
+  const articleP2 = document.createElement('p')
+  articleP2.textContent  = second
+  const articleP3 = document.createElement('p')
+  articleP3.textContent  = third
+  const articleOpen = document.createElement('span')
+  articleOpen.textContent = null
+
+  articleDiv.appendChild(articleH2)
+  articleDiv.appendChild(articlePDate)
+  articleDiv.appendChild(articleP1)
+  articleDiv.appendChild(articleP2)
+  articleDiv.appendChild(articleP3)
+  articleDiv.appendChild(articleOpen)
+
+  articleDiv.classList.add('article')
+  articlePDate.classList.add('date')
+  articleOpen.classList.add('expandButton')
+  
+  articleDiv.addEventListener('click', () => {
+    articleDiv.classList.toggle('article-open')
+  })
+  return articleDiv
+}
+
+const articleInsert = document.querySelector('.articles')
+data.forEach( item => articleInsert.appendChild(createArticle(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph)))
+articleInsert.appendChild(createArticle('Hired', 'Jan 1st, 2020', 'FreeLance studend from LambdaSchool receives offer from the President.', 'Offer is still pending...', 'LambdaStudent declines offer for a fork that could save humanity.'))
