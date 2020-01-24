@@ -112,16 +112,45 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
-const articleDiv = document.createElement('div')
-const articleH2 = document.createElement('h2')
-const articleP = document.createElement('p')
-const articleP2 = document.createElement('p')
-const articleP3 = document.createElement('p')
-const articleButton = document.createElement('span')
-articleDiv.appendChild(articleH2)
-articleH2.appendChild(articleP)
-articleH2.appendChild(articleP)
-articleH2.appendChild(articleP2)
-articleH2.appendChild(articleP3)
-articleH2.appendChild(articleButton)
+const createArticle = (title, date, first, second, third) => {
+  const articleDiv = document.createElement('div')
+  const articleH2 = document.createElement('h2')
+  articleH2.textContent = title
+  const articlePdate = document.createElement('p')
+  articlePdate.textContent = date
+  const articleP1 = document.createElement('p')
+  articleP1 = first
+  const articleP2 = document.createElement('p')
+  articleP2 = second
+  const articleP3 = document.createElement('p')
+  articlep3 = third
+
+  articleDiv.appendChild(articleH2)
+  articleH2.appendChild(articleP)
+  articleH2.appendChild(articleP2)
+  articleH2.appendChild(articleP3)
+  articleH2.appendChild(articleButton)
+  const articleOpen = document.createElement('span')
+  articleOpen.addEventListener('click', () => {
+    articleText.classList.toggle('article-open')
+})
+  return articleDiv
+}
+
+articleDiv.classList.add('articleDiv')
+articleH2.classList.add('articleH2')
+articleP.classList.add('articleP')
+articleP2.classList.add('articleP2')
+articleP3.classList.add('articleP3')
+articleButton.classList.add('articleButton')
+
+const article = document.querySelector('.articles')
+
+article.appendChild(createArticle(data[0].title, data[0].date, data[0].firstParagraph, data[0].secondParagraph, data[0].thirdParagraph)
+
+// data.forEach (item => {
+//   const newItem = article.appendChild(createArticle(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph)
+
+//   article.appendChild(newItem)
+// })
 
