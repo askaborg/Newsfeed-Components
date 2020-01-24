@@ -139,11 +139,11 @@ const createArticle = (title, date, first, second, third) => {
   articleOpen.classList.add('expandButton')
   
   articleOpen.addEventListener('click', () => {
-    articleDiv.classList.toggle('article-open')
+    articleOpen.classList.toggle('article-open')
   })
   return articleDiv
 }
 
 const articleInsert = document.querySelector('.articles')
 
-data.map( data => articleInsert.appendChild(createArticle(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph)))
+data.map( item => articleInsert.appendChild(createArticle(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph)))
